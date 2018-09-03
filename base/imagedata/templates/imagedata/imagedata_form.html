@@ -1,0 +1,28 @@
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Submit</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>caption</th>
+      <th>Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for imagedata in imagedatas %}
+      <tr>
+        <td><a href="{{ imagedata.image.url }}" target="_blank">{{ imagedata.image.name }}</a></td>
+        <td>{{ imagedata.caption }}</td>
+        <td>{{ imagedata.image.size|filesizeformat }}</td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="3">No data.</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

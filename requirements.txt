@@ -1,0 +1,8 @@
+Django==1.8.18
+djangorestframework==3.6.3
+django-filter==1.0.4
+psycopg2>=2.7.2
+pytz>=2017.3
+lxml==4.2.1
+requests==2.9.1
+django-storages==1.6.6
