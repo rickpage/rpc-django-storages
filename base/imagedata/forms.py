@@ -1,8 +1,8 @@
 from django import forms
-
-from base.imagedata.models import ImageData
-
-
-class ImageDataForm(forms.ModelForm):
-    class Meta:
-        model = ImageData
+#
+# from imagedata.models import ImageData
+#
+#
+# class ImageDataForm(forms.ModelForm):
+#     model = ImageData
+#     fields = 'image', 'caption', 'description'

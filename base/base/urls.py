@@ -17,5 +17,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^imagedata/', include('imagedata.urls')),
+    url(r'^photos/', include('imagedata.urls', namespace="imagedata")),
 ]

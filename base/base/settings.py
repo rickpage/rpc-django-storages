@@ -115,7 +115,15 @@ STATIC_URL = '/static/'
 
 # Move any settings needed for s3 to this file
 # defines media, default file storage, etc
-try:
-    from s3_settings import *
-except ImportError:
-    pass
+
+AWS_S3_ACCESS_KEY_ID = os.environ.get('AWS_S3_ACCESS_KEY_ID')
+AWS_S3_SECRET_ACCESS_KEY =  os.environ.get('AWS_S3_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+
+# TODO Watch out we dont really need or want static yet
+# Tell django-storages the domain to use to refer to static files.
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+
+MEDIAFILES_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'base.storages.MediaStorage'
