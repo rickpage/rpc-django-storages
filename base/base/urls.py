@@ -15,7 +15,16 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from imagedata.views import set_routes as imagedata_routes
+
+
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+imagedata_routes(router)
+
 urlpatterns = [
+    url(r'api/', include(router.urls)),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^photos/', include('imagedata.urls', namespace="imagedata")),
 ]

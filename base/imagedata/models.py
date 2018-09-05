@@ -12,6 +12,7 @@ class Photo(WithCreator):
     # Can be used as notes about the photo, or additional details
     description = models.CharField(max_length=256, blank=True, null=True)
 
+
 class ImageData(models.Model):
     """
     Represents image data for an image that is best represented
